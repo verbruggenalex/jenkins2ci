@@ -36,7 +36,6 @@ Example output :
 
           Name                         Command               State                  Ports                
 --------------------------------------------------------------------------------------------------------
-jenkinsci_backup_1          /usr/local/bin/backup.sh         Exit 0                                          
 jenkinsci_jenkinsdata_1     echo Data container for Je ...   Exit 0                                      
 jenkinsci_jenkinsmaster_1   /usr/local/bin/jenkins.sh        Up       0.0.0.0:50000->50000/tcp, 8080/tcp 
 jenkinsci_jenkinsnginx_1    nginx                            Up       0.0.0.0:80->80/tcp                 
