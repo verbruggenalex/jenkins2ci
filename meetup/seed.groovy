@@ -19,7 +19,7 @@ repositories.each {
                     source(class:'org.jenkinsci.plugins.github_branch_source.GitHubSCMSource',
                            plugin:'github-branch-source@1.3') {
                         id("opsauto:${repo}")
-                        apiUri('https://github.com/api/v3')
+                        apiUri('https://api.github.com/')
                         repoOwner('tomwillfixit')
                         repository(repo)
                         includes('*')
