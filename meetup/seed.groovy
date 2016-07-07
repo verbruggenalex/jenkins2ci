@@ -1,4 +1,5 @@
 def repositories = [
+    'jenkins2ci',
     'healthcheck',
     'helloworld',
 ]
