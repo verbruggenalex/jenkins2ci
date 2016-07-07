@@ -1,0 +1,20 @@
+/*
+
+Jenkins Pipeline DSL (Dynamic Scripting Language)
+Jenkins checks out this file at build time and creates the relevant stages defined below.
+This DSL can be run on any Jenkins Master which has the following plugin installed : job-dsl
+
+Pipeline flow
+
+    stage 'Checkout the source code'
+
+*/
+
+node('alpine3.4')
+{
+
+stage 'Checkout the source code'
+       
+    sh 'git clone https://github.com/tomwillfixit/helloworld.git'   
+    
+}

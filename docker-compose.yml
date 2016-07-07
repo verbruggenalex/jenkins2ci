@@ -1,0 +1,40 @@
+version: '2'
+services:
+  jenkinsdata:
+   build: 
+     context: jenkins-data
+   container_name: jenkins-data
+
+  jenkinsmaster:
+   build:
+     context: jenkins-master
+     dockerfile: Dockerfile
+     args:
+        JENKINS_VERSION: "$JENKINS_VERSION" 
+        JAVA_OPTS: "$JAVA_OPTS"
+   container_name: jenkins-master
+   volumes_from:
+    - jenkinsdata
+   ports:
+    - "50000:50000"
+   restart: always
+
+  jenkinsnginx:
+   build: 
+     context: jenkins-nginx
+   container_name: jenkins-nginx
+   ports:
+    - "80:80"
+   links:
+    - jenkinsmaster:jenkins-master
+   restart: always
+
+  #Simple example of a slave based on Alpine Linux.
+  #We don't specify a container name, this allows us to scale without naming conflict
+  jenkinslave:
+   build:
+     context: jenkins-slave
+     dockerfile: Dockerfile
+   restart: always
+   env_file:
+    - jenkins-slave/environment
