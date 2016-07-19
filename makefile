@@ -1,4 +1,4 @@
-JENKINS_VERSION ?= 2.3
+JENKINS_VERSION ?= 2.14
 JAVA_OPTS ?= "-Xmx2048m -Djenkins.install.runSetupWizard=false"
 
 version:

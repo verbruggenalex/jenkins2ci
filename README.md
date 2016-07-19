@@ -4,7 +4,7 @@ This repository contains the source and configuration used to build a Alpine Lin
 
 ## Dependencies
 
-You will need docker 1.12 and docker-compose 1.7.0 or newer installed. 
+You will need docker 1.12 and docker-compose 1.6.2 or newer installed. 
 
 Check which version you have : 
 ```
