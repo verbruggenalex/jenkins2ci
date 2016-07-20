@@ -4,7 +4,7 @@ def repositories = [
     'helloworld',
 ]
 
-// Create a Pipeline Multibranch job for each OPSAUTO repository.
+// Create a Pipeline Multibranch job for each repository.
 repositories.each {
     // Our Jenkins instance currently restricts job IDs to /[a-zA-Z0-9_]+/.
     def job = it.replaceAll('-', '_')
@@ -18,7 +18,7 @@ repositories.each {
                 node / 'sources' / 'data' / 'jenkins.branch.BranchSource' {
                     source(class:'org.jenkinsci.plugins.github_branch_source.GitHubSCMSource',
                            plugin:'github-branch-source@1.3') {
-                        id("opsauto:${repo}")
+                        id("meetup:${repo}")
                         apiUri('https://api.github.com/')
                         repoOwner('tomwillfixit')
                         repository(repo)
@@ -43,7 +43,7 @@ repositories.each {
     }
 }
 
-// Create an OPSAUTO view that contains the `master` branch of each
+// Create an Meetup view that contains the `master` branch of each
 // Pipeline Multibranch job created above, as well as the seed job that
 // runs this Groovy code.
 listView('Meetup Demo') {
