@@ -1,7 +1,7 @@
 def repositories = [
-    'jenkins2ci',
+    'hackharassment',
     'healthcheck',
-    'helloworld',
+    'go',
 ]
 
 // Create a Pipeline Multibranch job for each repository.
@@ -9,7 +9,7 @@ repositories.each {
     // Our Jenkins instance currently restricts job IDs to /[a-zA-Z0-9_]+/.
     def job = it.replaceAll('-', '_')
     def repo = it
-    multibranchWorkflowJob(job) {
+    multibranchPipelineJob(job) {
         branchSources {
             // The workflow-multibranch + github-branch-source combination
             // is not yet supported by the Jenkins DSL plugin. Write the XML
