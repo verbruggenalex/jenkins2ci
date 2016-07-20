@@ -10,5 +10,5 @@ Thread.start {
       Jenkins.instance.setSlaveAgentPort(port)
       println "--> Setting agent port for jnlp... done"
       println "--> Disabling master executors"
-      Jenkins.instance.setNumExecutors(0)
+      Jenkins.instance.setNumExecutors(1)
 }

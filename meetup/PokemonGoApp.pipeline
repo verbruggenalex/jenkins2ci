@@ -1,0 +1,39 @@
+node {
+
+stage "Cleanup Build env"
+   sh "rm -rf jenkins2ci"
+   sh "rm -rf *.results"
+   
+stage "Check out source"
+
+   sh "git clone https://github.com/tomwillfixit/jenkins2ci.git" 
+   
+stage "Run Static Analysis"
+   sh "echo Running static analysis;sleep 2"
+   
+stage "Run tests in parallel"
+
+parallel (
+  slice1: { node('alpine') {
+    sh "echo running tests in slice1 ; sleep 3"
+ }},
+  slice2: { node('alpine') {
+    sh "echo running tests in slice2 ; sleep 4"
+ }},
+ slice3: { node('alpine') {
+    sh "echo running tests in slice3 ; sleep 5"
+ }}
+ )
+
+stage "Run pre-integration tests"
+    sh "echo Running pre-integration tests; sleep 2"
+    
+stage "Create Artifacts"
+    sh "echo Creating results artifact; echo meetup_demo > ${env.BUILD_NUMBER}.results"
+    step([$class: 'ArtifactArchiver', artifacts: '*.results', fingerprint: false])
+    sh "wget http://blogs.nd.edu/oblation/files/2015/12/pokemon.jpg"
+    step([$class: 'ArtifactArchiver', artifacts: '*.jpg', fingerprint: false])
+    
+    
+}
+ 

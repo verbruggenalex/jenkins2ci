@@ -15,7 +15,7 @@ health:
 build:
 
 	@echo "Building Jenkins Containers : Jenkins Version=${JENKINS_VERSION} : Java Opts=${JAVA_OPTS}"
-	export JENKINS_VERSION=${JENKINS_VERSION} ; export JAVA_OPTS=${JAVA_OPTS} ; /usr/local/bin/docker-compose build 
+	export JENKINS_VERSION=${JENKINS_VERSION} ; export JAVA_OPTS=${JAVA_OPTS} ; /usr/local/bin/docker-compose build --no-cache 
 
 start:
 	@docker-compose up -d
