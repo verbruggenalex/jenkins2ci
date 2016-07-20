@@ -46,7 +46,7 @@ repositories.each {
 // Create an Meetup view that contains the `master` branch of each
 // Pipeline Multibranch job created above, as well as the seed job that
 // runs this Groovy code.
-listView('Meetup Demo') {
+listView('MeetupDemo') {
     description('Sample projects in Meetup Demo')
     recurse()
     jobs {
