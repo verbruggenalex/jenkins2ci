@@ -3,6 +3,7 @@ node {
 stage "Cleanup Build env"
    sh "rm -rf jenkins2ci"
    sh "rm -rf *.results"
+   sh "rm -rf pokemon.jpg"
    
 stage "Check out source"
 
