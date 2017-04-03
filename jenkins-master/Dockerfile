@@ -1,6 +1,6 @@
 
-FROM alpine:3.4 
-MAINTAINER tomwillfixit 
+FROM alpine:3.4
+MAINTAINER verbruggenalex@gmail.com
 
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
  && apk add --update \
@@ -9,7 +9,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposit
     curl \
     openjdk8 \
     zip \
-    bash \ 
+    bash \
     ttf-dejavu \
  && rm /var/cache/apk/*
 
